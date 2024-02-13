@@ -118,3 +118,18 @@ input {
         transform: translateX(0%);
     }
 }
+
+.student-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 80px;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#grade {
+    font-size: 1rem;
+    font-weight: 400;
+    color: black;
+}

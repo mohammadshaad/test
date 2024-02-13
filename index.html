@@ -61,6 +61,41 @@
       <span class="login-success"> Login successful! </span>
       <span class="login-failed"> Invalid credentials! </span>
     </section>
+
+    <section class="student-form">
+      <form name="student">
+        <label>
+          <input
+            type="text"
+            name="regno"
+            placeholder="Registeration Number"
+            required
+            autocomplete="off"
+            class="regno"
+          />
+        </label>
+        <label>
+          <input
+            type="text"
+            name="grade"
+            placeholder="Grade"
+            required
+            autocomplete="off"
+            class="grade"
+          />
+        </label>
+        <button type="submit" class="login-btn" id="submit-student-btn">
+          Submit
+        </button>
+      </form>
+
+      <span class="login-success"> Student details submitted! </span>
+
+      <span class="gradeDiv">
+        <p id="grade"> </p>
+      </span>
+
+    </section>
   </body>
 
   <script src="index.js" type="text/javascript"></script>
