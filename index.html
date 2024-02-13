@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>VTOP</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body>
+    <section class="home">
+      <div class="hero">
+        <h1 class="hero-title">Welcome to the VTOP!</h1>
+        <p class="hero-desc">
+          This is a simple website that I created to learn about web
+          development.
+        </p>
+
+        <p class="hero-desc" title="Just a note">
+          I'm using HTML, CSS, and JavaScript to create this website. I'm also
+          using PHP to create a simple backend for the website.
+        </p>
+
+        <!-- This is just a button -->
+        <div>
+          <button class="login-btn">
+            <a href="login.html">Login</a>
+          </button>
+          <button class="signup-btn">
+            <a href="signup.html">Sign Up</a>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="form">
+      <form name="login">
+        <label>
+          <input
+            onchange="validateForm()"
+            type="text"
+            name="username"
+            placeholder="Username"
+            required
+            autocomplete="off"
+            class="username"
+          />
+        </label>
+        <label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            required
+            autocomplete="off"
+            class="password"
+          />
+        </label>
+        <button type="submit" class="login-btn" id="submit-btn">Login</button>
+      </form>
+
+      <span class="login-success"> Login successful! </span>
+      <span class="login-failed"> Invalid credentials! </span>
+    </section>
+  </body>
+
+  <script src="index.js" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    function validateForm() {
+      var username = document.forms["login"]["username"].value;
+      console.log(username);
+    }
+  </script>
+</html>
