@@ -91,6 +91,9 @@ input {
     text-align: center;
     background-color: rgb(176, 255, 176);
     display: none;
+    animation-name: move;
+    animation-duration: 2s;
+    animation-timing-function: ease;
 }
 
 .login-failed {
@@ -102,4 +105,16 @@ input {
     text-align: center;
     background-color: rgb(255, 176, 176);
     display: none;
+    animation-name: move;
+    animation-duration: 2s;
+    animation-timing-function: ease;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
