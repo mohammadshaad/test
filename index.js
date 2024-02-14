@@ -12,6 +12,8 @@ var studentDetailSubmit = document.querySelector("#submit-student-btn");
 var successMessage = document.querySelector(".login-success");
 var errorMessage = document.querySelector(".login-failed");
 
+var canvas = document.querySelector("#canvas")
+
 // db username and password
 let dbUsername = "shaad";
 let dbPassword = "shaad";
@@ -67,3 +69,21 @@ function countGrade() {
 
   gradeDiv.innerHTML = `S: ${sCount} A: ${aCount} B: ${bCount} C: ${cCount}`;
 }
+
+var ctx = canvas.getContext("2d");
+ctx.strokeStyle = "red";
+ctx.moveTo(0, 0);
+ctx.lineTo(1000, 500);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.strokeStyle = "blue";
+ctx.arc(500, 200, 80, 0, 2 * Math.PI);
+ctx.stroke();
+
+ctx.fillStyle = "green";
+ctx.fillRect(300, 500, 400, 400);
+
+ctx.font="30px Arial";
+ctx.fillStyle = "black";
+ctx.fillText("Hello World",400,200);
