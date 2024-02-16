@@ -34,7 +34,7 @@ submit.addEventListener("click", function (e) {
 });
 
 studentDetailSubmit.addEventListener("click", function (e) {
-  e.preventDefault();
+  // e.preventDefault();
 
   var regNo = document.querySelector(".regno");
   var grade = document.querySelector(".grade");
