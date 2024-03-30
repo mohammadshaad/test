@@ -886,3 +886,83 @@ class BinomialHeap {
 		System.out.println(binHeap.isEmpty());
 	}
  }
+
+ // Top view
+ import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left, right;
+
+    public TreeNode(int val) {
+        this.val = val;
+        left = right = null;
+    }
+}
+
+public class TopViewBinaryTree {
+    static TreeNode buildTree(int[] arr, int index) {
+        if (index >= arr.length || arr[index] == -1) {
+            return null;
+        }
+        TreeNode root = new TreeNode(arr[index]);
+        root.left = buildTree(arr, 2 * index + 1);
+        root.right = buildTree(arr, 2 * index + 2);
+        return root;
+    }
+
+    static void topView(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        Queue<Map.Entry<TreeNode, Integer>> queue = new LinkedList<>();
+        Map<Integer, Integer> topViewMap = new TreeMap<>();
+
+        // Pair of node and its horizontal distance from the root
+        queue.offer(new AbstractMap.SimpleEntry<>(root, 0));
+
+        while (!queue.isEmpty()) {
+            Map.Entry<TreeNode, Integer> entry = queue.poll();
+            TreeNode node = entry.getKey();
+            int hd = entry.getValue();
+
+            // If the horizontal distance is not present in the map, add it to the map
+            if (!topViewMap.containsKey(hd)) {
+                topViewMap.put(hd, node.val);
+            }
+
+            // Enqueue left and right children with updated horizontal distance
+            if (node.left != null) {
+                queue.offer(new AbstractMap.SimpleEntry<>(node.left, hd - 1));
+            }
+            if (node.right != null) {
+                queue.offer(new AbstractMap.SimpleEntry<>(node.right, hd + 1));
+            }
+        }
+
+        // Print the top view of the binary tree
+        for (int val : topViewMap.values()) {
+            System.out.print(val + " ");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input array of integers
+        System.out.println("Enter the array of integers separated by spaces:");
+        String[] inputValues = scanner.nextLine().split("\\s+");
+        int[] arr = new int[inputValues.length];
+        for (int i = 0; i < inputValues.length; i++) {
+            arr[i] = Integer.parseInt(inputValues[i]);
+        }
+
+        // Construct the binary tree
+        TreeNode root = buildTree(arr, 0);
+
+        // Print the top view of the binary tree
+        System.out.println("Top view of the binary tree:");
+        topView(root);
+    }
+}
